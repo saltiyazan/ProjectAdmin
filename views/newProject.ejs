@@ -1,0 +1,52 @@
+<% include header.ejs %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.ejs">Projects</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Placeholder</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+    <div class="container list-group">
+        <br class="col-12">
+        <div class="row">
+            <form method="POST">
+                <div class="col-md-12">
+                    <label class="m-1">
+                        Project Name:
+                        <input type="text" class="form-control" id='name' placeholder="project name" name='name' required/>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="m-1">Description:
+                        <textarea class="form-control" id="description"
+                                  name="description" required>
+                        </textarea>
+                    </label>
+                </div>
+                <div class="col-md-12">
+
+                    <label class="m-1"> Estimated Time:
+                        <input class="form-control" id="estimated_time"
+                               name="estimated_time" type="number" required/>
+                    </label>
+                </div>
+                <span class="col-md-12">
+                    <br>
+                </span>
+                <div>
+                    <input type="submit" class="m-2 btn-lg btn-primary" value="Create"/>
+                    <a class="m-2 btn-lg btn-danger" href="/">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<% include footer.ejs %>

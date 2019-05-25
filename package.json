@@ -1,0 +1,19 @@
+{
+  "name": "hf2_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "istanbul": "^0.4.5",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.2"
+  }
+}

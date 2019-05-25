@@ -1,0 +1,78 @@
+<% include header.ejs %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.ejs">Projects</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Placeholder</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+    <div class="container">
+        <br class="col-12">
+        <div class="row">
+            <form method="POST">
+                <div class="container input-group mb-5">
+                    <div class="form-group m-1 col-md-5 col-sm-12">
+                        <label > Project Name:</label>
+                        <input type="text" class="form-control" id='name' placeholder="project name" name='name'
+                            value="<%= (typeof project !== 'undefined') ? project.name: '' %>"/>
+                    </div>
+                    <div class="form-group m-1 col-md-5 col-sm-12">
+                        <label>Description:</label>
+                        <textarea class="form-control" id="description"
+                                  name="description"><%= (typeof project !== 'undefined') ? project.description : '' %></textarea>
+                    </div>
+                    <div class="form-group m-1 col-md-5 col-sm-12">
+                        <label>Estimated Time:</label>
+                        <input class="form-control" id="estimated_time"
+                                  name="estimated_time" type="number" value="<%= (typeof project !== 'undefined') ? project.estimated_time : '' %>"/>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                    <table class="table table-hover border  table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Issue Name</th>
+                            <th>Issue Description</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% issues.forEach(function (oneIssue) {
+
+                        %>
+                        <tr>
+                            <td><%= oneIssue.name%><span class="float-right"></span></td>
+                            <td><%= oneIssue.description%></td>
+                            <td>
+                                <a class="btn-sm btn-primary " href="/issue/<%= project.id %>/edit/<%=oneIssue.id%>"><i class="fas fa-edit"></i></a>
+                                <a class="btn-sm btn-danger" href="/issue/<%= project.id %>/del/<%=oneIssue.id%>"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                    <br class="col-md-12">
+                    <div class="text-left"><a class="m-2 btn-lg btn-primary" href="/issue/<%= project.id%>/new">New Issue</a></div>
+                    <hr class="col-md-12">
+                </div>
+                <div>
+                    <input type="submit" class="m-2 btn-lg btn-success" value="Save"/>
+                    <div><br class="col-sm-12"></div>
+                    <a class="m-2 btn-lg btn-danger" href="/">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<% include footer.ejs %>
